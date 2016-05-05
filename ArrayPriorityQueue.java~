@@ -5,15 +5,15 @@
 
 import java.util.ArrayList;
 
-public class ArrayPriorityQueue<Comparable> implements PriorityQueue<Comparable> {
+public class ArrayPriorityQueue<Object> implements PriorityQueue<Object> {
 
     // instance vars
-    ArrayList<Comparable> items;
+    ArrayList<Object> items;
     int size;
 
     // constructor for class ArrayPriorityQueue
     public ArrayPriorityQueue() {
-        items = new ArrayList<Comparable>();
+        items = new ArrayList<Object>();
         size = 0;
     }
 
@@ -25,8 +25,8 @@ public class ArrayPriorityQueue<Comparable> implements PriorityQueue<Comparable>
 
     // postcondition: x has been added to the priority queue; 
     //                 number of elements in the priority queue is increased by 1 
-    public void add( Comparable x ) {
-        items.add( (Comparable) x );
+    public void add( Object x ) {
+        items.add( (Object) x );
         size++;
     }
 
@@ -34,9 +34,9 @@ public class ArrayPriorityQueue<Comparable> implements PriorityQueue<Comparable>
     //                 and returned; the number of elements in the priority queue 
     //                 is decreased by 1
     //                 throws an uIndexOutOfBoundsException if the priority queue is empty 
-    public Comparable removeMin() {
+    public Object removeMin() {
         int minIndex = findMin();
-        Comparable min = (Comparable) items.get( minIndex );
+        Object min = items.get( minIndex );
         items.remove( minIndex );
         size--;
         return min;
@@ -45,9 +45,9 @@ public class ArrayPriorityQueue<Comparable> implements PriorityQueue<Comparable>
     // postcondition: The smallest item in the priority queue is returned; the 
     //                 priority queue is unchanged 
     //                 throws an IndexOutOfBoundsException if the priority queue is empty 
-    public Comparable peekMin() {
+    public Object peekMin() {
         int minIndex = findMin();
-        Comparable min = (Comparable) items.get( minIndex );
+        Object min = items.get( minIndex );
         return min;
     }
     
@@ -61,7 +61,7 @@ public class ArrayPriorityQueue<Comparable> implements PriorityQueue<Comparable>
             for (int i = 1; i < size; i++) { //reigning champ algo
                 Comparable min = (Comparable) items.get(minIndex);
                 Comparable itemAtIndex = (Comparable) items.get(i);
-                if ( itemAtIndex.compareTo( min ) < 0 )
+                if (  itemAtIndex.compareTo(min) < 0 )
                     minIndex = i;
             }
             return minIndex;

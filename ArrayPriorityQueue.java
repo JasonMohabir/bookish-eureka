@@ -18,22 +18,22 @@ public class ArrayPriorityQueue<Object> implements PriorityQueue<Object> {
     }
 
     // postcondition: returns true if the number of elements in 
-    //                 the priority queue is 0; otherwise, returns false 
+    //                the priority queue is 0; otherwise, returns false 
     public boolean isEmpty(){
         return size == 0;
     }
 
     // postcondition: x has been added to the priority queue; 
-    //                 number of elements in the priority queue is increased by 1 
+    //                number of elements in the priority queue is increased by 1 
     public void add( Object x ) {
         items.add( (Object) x );
         size++;
     }
 
     // postcondition: The smallest item in the priority queue is removed 
-    //                 and returned; the number of elements in the priority queue 
-    //                 is decreased by 1
-    //                 throws an uIndexOutOfBoundsException if the priority queue is empty 
+    //                and returned; the number of elements in the priority queue 
+    //                is decreased by 1
+    //                throws an IndexOutOfBoundsException if the priority queue is empty 
     public Object removeMin() {
         int minIndex = findMin();
         Object min = items.get( minIndex );
@@ -43,8 +43,8 @@ public class ArrayPriorityQueue<Object> implements PriorityQueue<Object> {
     }
 
     // postcondition: The smallest item in the priority queue is returned; the 
-    //                 priority queue is unchanged 
-    //                 throws an IndexOutOfBoundsException if the priority queue is empty 
+    //                priority queue is unchanged 
+    //                throws an IndexOutOfBoundsException if the priority queue is empty 
     public Object peekMin() {
         int minIndex = findMin();
         Object min = items.get( minIndex );
@@ -53,8 +53,8 @@ public class ArrayPriorityQueue<Object> implements PriorityQueue<Object> {
     
     
     // postcondition: The index of the smallest item in the priority queue  
-    //                 is returned; the priority queue is unchanged 
-    //                 throws an IndexOutOfBoundsException if the priority queue is empty 
+    //                is returned; the priority queue is unchanged 
+    //                throws an IndexOutOfBoundsException if the priority queue is empty 
     public int findMin() {
         if (size > 0) { //queue is empty
             int minIndex = 0;
